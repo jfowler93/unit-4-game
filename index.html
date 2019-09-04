@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Rupee Frenzy</title>
+    <title>Rupee Ransom</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <link rel="stylesheet" href="assets/css/reset.css">
     <link rel="stylesheet" href="assets/css/style.css">
@@ -14,7 +14,65 @@
 </head>
 
 <body>
+    <div class="container">
+        <div class="jumbotron bg-success">
+            <h1 class="display-4">Rupee Ransom</h1>
+            <p class="lead"> Ganondorf is holding Hyrule ransom for an oddly specific amount of rupees! Forget what you
+                know about currency value in Hyrule. These are cursed trick rupees. Each rupee is
+                magically assigned a random value. In order to win the game and save Hyrule, you have to collect the
+                right
+                amount of rupees to match the number provided. If you fail, well... you don't want to know.</p>
+        </div>
+    </div>
 
+    <div class="container">
+
+        <div class="row">
+
+            <!-- Random number card -->
+            <div class="col-lg-6">
+                <div class="card">
+                    <h3 class="card-header">Rupees Demanded</h3>
+                    <p class="ransom"></p>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="card">
+                    <h3 class="card-header">Rupees Gathered</h3>
+                    <p class="gathered"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+
+        <div class="row">
+
+            <!-- Random number card -->
+            <div class="col-lg-6">
+                <div class="card">
+                    <h3 class="card-header">RUPEES!!!</h3>
+                    <div class="row justify-content-center">
+                        <button id="rupee-1" class="btn" value=""><span id="rupee-button"><img
+                                    src="assets/images/green.png" width="60px" height="80px"></span></button>
+                        <button id="rupee-2" class="btn" value=""><span id="rupee-button"><img
+                                    src="assets/images/blue.png" width="60px" height="80px"></span></button>
+                        <button id="rupee-3" class="btn" value=""><span id="rupee-button"><img
+                                    src="assets/images/red.png" width="60px" height="80px"></span></button>
+                        <button id="rupee-4" class="btn" value=""><span id="rupee-button"><img
+                                    src="assets/images/yellow.png" width="60px" height="80px"></span></button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="card">
+                    <h3 class="card-header">Success Rate</h3>
+                    <p class="wins"></p>
+                    <p class="losses"></p>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 
 </html>
