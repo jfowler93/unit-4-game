@@ -2,15 +2,16 @@ $(document).ready(function () {
 
     // Declare Variables
     var randomNumber= "";
-    var userNumber= "";
-    var rupeeOne= "";
-    var rupeeTwo= "";
-    var rupeeThree= "";
-    var rupeeFour= "";
+    var userNumber= 0;
+    var rupeeOne;
+    var rupeeTwo;
+    var rupeeThree;
+    var rupeeFour;
     var wins= 0;
     var losses= 0;
-    var isNumberEqual= false;
+    // var isNumberEqual= false;
 
+    // start game function
     function startGame() {
         randomNumber= Math.floor(Math.random() * (120-19) +19);
         rupeeOne= Math.floor(Math.random() * (12-1) +12);
@@ -25,30 +26,47 @@ $(document).ready(function () {
         $("#gathered").html(userNumber);
         $("#wins").html("Triumphs Over Evil: " + wins);
         $("#losses").html("OOPS: " + losses);
+        $("#rupee-1").attr("data-rupeevalue", rupeeOne);
+        $("#rupee-2").attr("data-rupeevalue", rupeeTwo);
+        $("#rupee-3").attr("data-rupeevalue", rupeeThree);
+        $("#rupee-4").attr("data-rupeevalue", rupeeFour);
         
-        
-        function rupeeValue() {
-            $("#rupee-1") = (rupeeOne);
-            $("#rupee-2") = (rupeeTwo);
-            $("#rupee-3") = (rupeeThree);
-            $("#rupee-4") = (rupeeFour);
+        // function rupeeValue() {
+        //     $("#rupee-1") = (rupeeOne);
+        //     $("#rupee-2") = (rupeeTwo);
+        //     $("#rupee-3") = (rupeeThree);
+        //     $("#rupee-4") = (rupeeFour);
 
-        };
+        // };
 
         rupeeValue();
     }
 startGame();
 
-// $(".btn").on("click" , function(){
-//     if (isNumberEqual) {
-//         return false;
-//     };
-    
-// $("#gathered").html(buttonValue);
+// click event
+
+$(".button").on("click", function(){
+if(userNumber >= randomNumber){
+    return;
+}
+
+var rupeeValue = $(this).attr("data-rupeevalue");
+rupeeValue = parseInt(rupeeValue);
+userNumber += rupeeValue;
+$("#gathered").text(userNumber)
+
+if (userNumber === randomNumber) {
+    wins++;
+    startGame()
+}
+else if (userNumber > randomNumber) {
+    losses++;
+    startGame()
+}
+});
     
 
 });
-
 
 
 
