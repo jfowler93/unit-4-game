@@ -14,18 +14,18 @@ $(document).ready(function () {
     // start game function
     function startGame() {
         randomNumber= Math.floor(Math.random() * (120-19) +19);
-        rupeeOne= Math.floor(Math.random() * (12-1) +12);
-        rupeeTwo= Math.floor(Math.random() * (12-1) +12);
-        rupeeThree= Math.floor(Math.random() * (12-1) +12);
-        rupeeFour= Math.floor(Math.random() * (12-1) +12);
+        rupeeOne= Math.floor(Math.random() * (12-1));
+        rupeeTwo= Math.floor(Math.random() * (12-1) );
+        rupeeThree= Math.floor(Math.random() * (12-1) );
+        rupeeFour= Math.floor(Math.random() * (12-1) );
         userNumber= 0;
         wins= 0;
         losses= 0;
         isNumberEqual= false;
         $("#ransom").html(randomNumber);
         $("#gathered").html(userNumber);
-        $("#wins").html("Triumphs Over Evil: " + wins);
-        $("#losses").html("OOPS: " + losses);
+        
+        
         $("#rupee-1").attr("data-rupeevalue", rupeeOne);
         $("#rupee-2").attr("data-rupeevalue", rupeeTwo);
         $("#rupee-3").attr("data-rupeevalue", rupeeThree);
@@ -39,7 +39,7 @@ $(document).ready(function () {
 
         // };
 
-        rupeeValue();
+        // rupeeValue();
     }
 startGame();
 
@@ -47,22 +47,25 @@ startGame();
 
 $(".button").on("click", function(){
 if(userNumber >= randomNumber){
-    return;
+    return; false
 }
 
 var rupeeValue = $(this).attr("data-rupeevalue");
 rupeeValue = parseInt(rupeeValue);
 userNumber += rupeeValue;
-$("#gathered").text(userNumber)
+$("#gathered").text(userNumber);
 
 if (userNumber === randomNumber) {
     wins++;
+    $("#wins").html("Triumphs Over Evil: " + wins);
     startGame()
+    
 }
 else if (userNumber > randomNumber) {
     losses++;
+    $("#losses").html("OOPS: " + losses);
     startGame()
-}
+};
 });
     
 
