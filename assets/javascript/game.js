@@ -19,8 +19,6 @@ $(document).ready(function () {
         rupeeThree= Math.floor(Math.random() * (12-1) );
         rupeeFour= Math.floor(Math.random() * (12-1) );
         userNumber= 0;
-        wins= 0;
-        losses= 0;
         isNumberEqual= false;
         $("#ransom").html(randomNumber);
         $("#gathered").html(userNumber);
